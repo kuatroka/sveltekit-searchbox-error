@@ -5,7 +5,7 @@ export const load = async ({ url }) => {
 	let skip_from_server = Number(url.searchParams.get('skip')) ?? 0;
 	let search_from_server = url.searchParams.get('q')?.toString() ?? '';
 
-	let tracks = getInitialTracks(limit_from_server, skip_from_server, search_from_server);
+	let tracks = await getInitialTracks(limit_from_server, skip_from_server, search_from_server);
 
 	console.log('limit from server:', limit_from_server);
 	console.log('skip from server:', skip_from_server);
