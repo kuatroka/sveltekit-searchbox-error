@@ -1,6 +1,7 @@
 import { getInitialTracks } from '$lib/server/db/sqlite';
+import type { PageServerLoad } from './$types';
 
-export const load = async ({ url }) => {
+export const load: PageServerLoad = async ({ url }) => {
 	let limit_from_server = Number(url.searchParams.get('limit') ?? 5);
 	let skip_from_server = Number(url.searchParams.get('skip')) ?? 0;
 	let search_from_server = url.searchParams.get('q')?.toString() ?? '';
